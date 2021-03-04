@@ -6,7 +6,7 @@ import {
   MemoKeyFunction,
   MemoizedFunction,
   MemoRecord,
-} from '#types/MemoTypes';
+} from '#types';
 
 import {
   genericKeyFunction,

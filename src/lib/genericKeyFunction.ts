@@ -1,6 +1,4 @@
-import {
-  MemoKeyFunction,
-} from '#types/MemoTypes';
+import { MemoKeyFunction } from '#types';
 
 const { stringify } = JSON;
 

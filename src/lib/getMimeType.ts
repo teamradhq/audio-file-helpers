@@ -1,7 +1,15 @@
 import { execSync } from 'child_process';
 
-import { AnyFunction, MemoizedFunction } from '#types/MemoTypes';
-import { HOME_LOG_DIRECTORY, NAMESPACE } from '../CONSTANTS/index';
+import {
+  AnyFunction,
+  MemoizedFunction
+} from '#types';
+
+import {
+  HOME_LOG_DIRECTORY,
+  NAMESPACE
+} from '../CONSTANTS/index';
+
 import {
   escapeShellText,
   jsonMemoize

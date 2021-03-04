@@ -1,5 +1,6 @@
-import { MemoData } from '#types/MemoTypes';
 import { readFileSync } from 'fs';
+
+import { MemoData } from '#types';
 
 const { parse } = JSON;
 

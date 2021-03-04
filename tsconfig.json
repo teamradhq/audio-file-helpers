@@ -18,7 +18,7 @@
     "paths": {
       "@CONSTANTS": ["./src/CONSTANTS"],
       "@stores/*": ["./src/stores/*"],
-      "#types": ["./src/types"],
+      "#types": ["./src/types/index.ts"],
       "#types/*": ["./src/types/*"],
       "@lib": ["./src/lib/index.ts"],
       "@lib/*": ["./src/lib/*"]
