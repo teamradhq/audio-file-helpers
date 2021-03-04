@@ -8,7 +8,7 @@ import {
 import {
   HOME_LOG_DIRECTORY,
   NAMESPACE
-} from '../CONSTANTS/index';
+} from '@CONSTANTS';
 
 import {
   escapeShellText,

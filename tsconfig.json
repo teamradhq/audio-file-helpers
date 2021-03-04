@@ -16,7 +16,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@CONSTANTS": ["./src/CONSTANTS"],
+      "@CONSTANTS": ["./src/CONSTANTS/index.ts"],
+      "@CONSTANTS/*": ["./src/CONSTANTS/*"],
       "@stores/*": ["./src/stores/*"],
       "#types": ["./src/types/index.ts"],
       "#types/*": ["./src/types/*"],
