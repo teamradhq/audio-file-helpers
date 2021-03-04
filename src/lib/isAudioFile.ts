@@ -1,4 +1,4 @@
-const extensions = /\.(mp3|aif|aiff|wav|flac|m4a)$/;
+import { REGEX_AUDIO_FILE_EXTENSION } from '@CONSTANTS';
 
 /**
  * The file at {filepath} has an audio mime type.
@@ -9,4 +9,4 @@ const extensions = /\.(mp3|aif|aiff|wav|flac|m4a)$/;
  */
 export const isAudioFile = (
   filepath: string
-): boolean => !!filepath.match(extensions);
+): boolean => !!filepath.match(REGEX_AUDIO_FILE_EXTENSION);
