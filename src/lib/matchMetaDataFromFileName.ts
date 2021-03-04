@@ -1,7 +1,8 @@
+import { basename } from 'path';
 /**
  * Audio file metadata, which may be present in its name.
  */
-type AudioTagMeta = {
+export type AudioTagMeta = {
   trackNumber?: string | number;
   artist?: string;
   title?: string;
@@ -13,13 +14,13 @@ type AudioTagMeta = {
 /**
  * A function that maps an object entry's value.
  */
-type EntryMapperFunction = (key: string, value: string) => (string|number)[];
+export type EntryMapperFunction = (key: string, value: string) => (string|number)[];
 
 /**
  * A collection of entry mappers, including
  * a default mapper.
  */
-type EntryMapperCollection = {
+export type EntryMapperCollection = {
   DEFAULT: EntryMapperFunction;
   [key: string]: EntryMapperFunction;
 }
@@ -81,7 +82,7 @@ const tagMatchMappers: EntryMapperCollection = {
  * @return  {AudioTagMeta}
  */
 export const matchMetaDataFromFileName = (filepath: string): AudioTagMeta => {
-  const match = filepath.match(trackTagMatch)?.groups || {}
+  const match = basename(filepath).match(trackTagMatch)?.groups || {}
   const entries = Object.entries(match).map(
     ([key, value]) => (tagMatchMappers[key] || tagMatchMappers.DEFAULT)(key, value)
   );
