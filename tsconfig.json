@@ -16,13 +16,13 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@CONSTANTS": ["./src/CONSTANTS/index.ts"],
-      "@CONSTANTS/*": ["./src/CONSTANTS/*"],
-      "@stores/*": ["./src/stores/*"],
-      "#types": ["./src/types/index.ts"],
-      "#types/*": ["./src/types/*"],
-      "@lib": ["./src/lib/index.ts"],
-      "@lib/*": ["./src/lib/*"]
+      "@CONSTANTS": ["src/CONSTANTS/index.ts"],
+      "@CONSTANTS/*": ["src/CONSTANTS/*"],
+      "@stores/*": ["src/stores/*"],
+      "#types": ["src/types/index.ts"],
+      "#types/*": ["src/types/*"],
+      "@lib": ["src/lib"],
+      "@lib/*": ["src/lib/*"]
     }
   }
 }

@@ -1,6 +1,6 @@
 import {
   reduceDirectoriesToFiles
-} from '@lib';
+} from '@lib/reduceDirectoriesToFiles';
 /**
 * List all audio files found in a collection of directories.
 *

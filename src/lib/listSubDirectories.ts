@@ -2,11 +2,12 @@ import {
   existsSync,
   readdirSync,
 } from 'fs';
+
 import { resolve } from 'path';
 
 const cwd = process.cwd();
 
-import { isDirectory } from '@lib';
+import { isDirectory } from '@lib/isDirectory';
 
 /**
  * Get a list of every sub-directory contained

@@ -16,10 +16,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    roots: [__dirname],
     alias: {
-      '@CONSTANTS': path.resolve(__dirname, 'src/CONSTANTS'),
+      '@CONSTANTS': path.resolve(__dirname, 'src/CONSTANTS/index.ts'),
       '@lib': path.resolve(__dirname, 'src/lib/'),
-      '#types': path.resolve(__dirname, 'src/types/'),
+      '#types': path.resolve(__dirname, 'src/types/index/'),
     }
   },
   output: {
