@@ -1,0 +1,21 @@
+{
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "path-intellisense.showHiddenFiles": true,
+    "path-intellisense.mappings": {
+      "@/*": "${workspaceRoot}/src",
+      "#/*": "${workspaceRoot}/tests"
+    },
+    "files.exclude": {
+      "**/.git": false,
+      "**/.git/[^hooks]*": true,
+      "**/.git/objects": true,
+      "js": true,
+      "js/**/*": true,
+      "node_modules/**/node_modules": true,
+  }
+}

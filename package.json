@@ -1,0 +1,36 @@
+{
+  "name": "check-products",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.js",
+  "directories": {
+    "lib": "src/lib"
+  },
+  "scripts": {
+    "build": "webpack -c ./webpack.config.js",
+    "watch": "webpack -w -c ./webpack.config.js",
+    "dev": "nodemon --config ./nodemon.json --exec npm run build",
+    "lint": "npx tslint  --project ./",
+    "lint:fix": "npx tslint  --project ./ --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.13.9",
+    "@types/node": "^14.14.31",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "core-js": "^3.9.1",
+    "webpack": "^5.24.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "eslint": "^7.21.0",
+    "nodemon": "^2.0.7",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.2.2",
+    "webpack-cli": "^4.5.0"
+  }
+}

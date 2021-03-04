@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "jsx": "react",
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "types": ["node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@CONSTANTS": ["./src/CONSTANTS"],
+      "@stores/*": ["./src/stores/*"],
+      "#types": ["./src/types"],
+      "#types/*": ["./src/types/*"],
+      "@lib": ["./src/lib"],
+      "@lib/*": ["./src/lib/*"]
+    }
+  }
+}
