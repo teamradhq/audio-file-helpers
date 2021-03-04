@@ -1,4 +1,5 @@
 import { readdirSync } from 'fs';
+import { resolve } from 'path';
 
 import { isAudioFile }from '@lib/index';
 
@@ -16,7 +17,7 @@ export const reduceDirectoriesToFiles = (
   const contents: string[] = readdirSync(current)
     .reduce((data:string[], filepath:string): string[] => {
       if (filepath.match(REGEX_AUDIO_FILE_EXTENSION)) {
-        data.push(filepath);
+        data.push(resolve(current, filepath));
       }
 
       return data;
