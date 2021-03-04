@@ -11,14 +11,7 @@
  * Any possible duplicates are logged to stdout.
  *
  */
-const { inspect } = require('util');
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
-const homedir = require('os').homedir();
-
-const logDir = path.resolve(homedir, '.logs');
-
+import { inspect } from 'util';
 const cwd = process.cwd();
 
 /* eslint-disable no-console */

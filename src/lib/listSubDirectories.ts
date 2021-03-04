@@ -22,7 +22,8 @@ export const listSubDirectories = (root: string = cwd): string[] => {
     return [];
   }
 
-  return readdirSync(root).reduce((
+  const contents = readdirSync(root);
+  return contents.reduce((
     directories: string[],
     dir: string
   ): string[] => {
