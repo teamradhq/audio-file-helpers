@@ -1,10 +1,6 @@
-import {
-  MemoData,
-} from '#types/MemoTypes';
+import { MemoData } from '#types/MemoTypes';
 
-import {
-  writeFileSync,
-} from 'fs';
+import { writeFileSync } from 'fs';
 
 const {
   stringify,

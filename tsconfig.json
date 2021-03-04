@@ -20,7 +20,7 @@
       "@stores/*": ["./src/stores/*"],
       "#types": ["./src/types"],
       "#types/*": ["./src/types/*"],
-      "@lib": ["./src/lib"],
+      "@lib": ["./src/lib/index.ts"],
       "@lib/*": ["./src/lib/*"]
     }
   }

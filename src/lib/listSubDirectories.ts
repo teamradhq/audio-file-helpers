@@ -6,7 +6,7 @@ import { resolve } from 'path';
 
 const cwd = process.cwd();
 
-import { isDirectory } from '@lib/isDirectory';
+import { isDirectory } from '@lib';
 
 /**
  * Get a list of every sub-directory contained

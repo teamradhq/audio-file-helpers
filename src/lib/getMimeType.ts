@@ -1,9 +1,11 @@
 import { execSync } from 'child_process';
-import { jsonMemoize } from '@lib/jsonMemoize';
 
 import { AnyFunction, MemoizedFunction } from '#types/MemoTypes';
 import { HOME_LOG_DIRECTORY, NAMESPACE } from '../CONSTANTS/index';
-import { escapeShellText } from '@lib/escapeShellText';
+import {
+  escapeShellText,
+  jsonMemoize
+} from '@lib';
 
 export const getMimeTypeFunction = (filepath: string): string => (
   execSync(`file --mime-type -b "${escapeShellText(filepath)}"`, {

@@ -33,12 +33,15 @@ const log = (item: unknown): void => console.log(inspect(item, {
 }));
 /* eslint-enable no-console */
 
-import { listAudioFiles } from '@lib/listAudioFiles';
-import { listSubDirectories } from '@lib/listSubDirectories';
-import { matchMetaDataFromFileName } from '@lib/matchMetaDataFromFileName';
+import {
+  listAudioFiles,
+  listSubDirectories,
+  matchMetaDataFromFileName
+} from '@lib';
 
 const directories = listSubDirectories(cwd);
 const audiofiles = listAudioFiles(directories);
+
 audiofiles.slice(-100).forEach((file) => {
   log(file);
   log(matchMetaDataFromFileName(file));

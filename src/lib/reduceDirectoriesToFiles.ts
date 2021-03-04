@@ -1,6 +1,6 @@
 import { readdirSync } from 'fs';
 
-import { isAudioFile }from '@lib/isAudioFile';
+import { isAudioFile }from '@lib';
 // import {
 //   reduceDirectoryContentsToAudioFiles as toAudioFiles,
 // } from '@lib/reduceDirectoryContentsToAudioFiles';

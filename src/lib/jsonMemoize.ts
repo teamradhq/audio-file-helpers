@@ -8,9 +8,11 @@ import {
   MemoRecord,
 } from '#types/MemoTypes';
 
-import { genericKeyFunction } from '@lib/genericKeyFunction';
-import { readMemoFile } from '@lib/readMemoFile';
-import { writeMemoFile } from '@lib/writeMemoFile';
+import {
+  genericKeyFunction,
+  readMemoFile,
+  writeMemoFile
+} from '@lib';
 
 /**
  * Creates a memoised function which chaches results

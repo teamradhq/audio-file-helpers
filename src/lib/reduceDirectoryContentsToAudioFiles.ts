@@ -1,6 +1,6 @@
 import { resolve }from 'path';
 
-import { isAudioFile }from '@lib/isAudioFile';
+import { isAudioFile }from '@lib';
 
 /**
  * Map a {file} in {dir} to its absolute path.
