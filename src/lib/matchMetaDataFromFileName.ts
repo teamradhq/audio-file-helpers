@@ -33,11 +33,11 @@ export type EntryMapperCollection = {
  */
 const patterns: Required<AudioTagMeta> = {
   trackNumber: '\\d{1,2}',
-  artist: '[A-Za-z0-9, ]*',
+  artist: '[A-Za-z0-9,& ]*',
   title: '[A-Za-z0-9,()"\' ]*',
   key:'\\d{1,2}[AB]',
   bpm:'\\d{2,3}',
-  separator: '\\s?-\\s?',
+  separator: '\\s{0,}-\\s{0,}',
 };
 
 /**
@@ -84,7 +84,7 @@ const tagMatchMappers: EntryMapperCollection = {
 export const matchMetaDataFromFileName = (filepath: string): AudioTagMeta => {
   const match = basename(filepath).match(trackTagMatch)?.groups || {}
   const entries = Object.entries(match).map(
-    ([key, value]) => (tagMatchMappers[key] || tagMatchMappers.DEFAULT)(key, value)
+    ([key, value]) => value ? (tagMatchMappers[key] || tagMatchMappers.DEFAULT)(key, value) : [key, value]
   );
 
   return Object.fromEntries(entries);

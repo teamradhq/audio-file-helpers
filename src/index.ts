@@ -11,31 +11,46 @@
  * Any possible duplicates are logged to stdout.
  *
  */
-import { inspect } from 'util';
 const cwd = process.cwd();
 
-/* eslint-disable no-console */
-/**
- * Log an {item} to console.
- * @param  {any} item
- * @return {stdout}
- */
-const log = (item: unknown): void => console.log(inspect(item, {
-  colors: true,
-  depth: Infinity,
-}));
-/* eslint-enable no-console */
-
-
+import { log } from '@lib/log';
 import { listAudioFiles } from '@lib/listAudioFiles';
 import { listSubDirectories } from '@lib/listSubDirectories';
-import { matchMetaDataFromFileName } from '@lib/matchMetaDataFromFileName';
-
+import { AudioTagMeta, matchMetaDataFromFileName } from '@lib/matchMetaDataFromFileName';
 
 const directories = listSubDirectories(cwd);
 const audiofiles = listAudioFiles(directories);
 
-audiofiles.slice(-100).forEach((file) => {
-  log(file);
-  log(matchMetaDataFromFileName(file));
+
+type DupeFileResult = [AudioTagMeta, ...string[]];
+
+type AudioTagMetaEntry = {
+  [key: string]: DupeFileResult;
+};
+
+type DupeCollection = {
+  noMatch: string[],
+  tracks: AudioTagMetaEntry,
+  dupes: DupeFileResult[]
+}
+
+const result: DupeCollection = {
+  noMatch: [],
+  tracks: {},
+  dupes: [],
+}
+
+audiofiles.forEach((file) => {
+  const match = matchMetaDataFromFileName(file);
+
+  if (Object.keys(match).length === 0) {
+    result.noMatch.push(file);
+    return;
+  }
+
+  const key = `${match.artist}::${match.title}`;
+  result.tracks[key] = result.tracks[key] || [match];
+  result.tracks[key].push(file);
 });
+
+log(Object.values(result.tracks).filter((arr) => arr.length > 2));
