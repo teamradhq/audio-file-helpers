@@ -53,4 +53,4 @@ audiofiles.forEach((file) => {
   result.tracks[key].push(file);
 });
 
-log(Object.values(result.tracks).filter((arr) => arr.length > 2));
+log(Object.values(result.tracks).filter((arr) => arr[0].artist && arr[0].title && arr.length > 2));

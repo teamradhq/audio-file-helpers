@@ -1,4 +1,4 @@
-import { basename } from 'path';
+import { basename, parse } from 'path';
 /**
  * Audio file metadata, which may be present in its name.
  */
@@ -82,10 +82,14 @@ const tagMatchMappers: EntryMapperCollection = {
  * @return  {AudioTagMeta}
  */
 export const matchMetaDataFromFileName = (filepath: string): AudioTagMeta => {
-  const match = basename(filepath).match(trackTagMatch)?.groups || {}
+  const base = basename(filepath);
+  const match = base.match(trackTagMatch)?.groups || {}
   const entries = Object.entries(match).map(
     ([key, value]) => value ? (tagMatchMappers[key] || tagMatchMappers.DEFAULT)(key, value) : [key, value]
   );
 
-  return Object.fromEntries(entries);
+  return {
+    ...Object.fromEntries(entries),
+    base: parse(base).name,
+  };
 }
