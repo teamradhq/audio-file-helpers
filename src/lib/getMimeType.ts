@@ -10,10 +10,18 @@ import {
   NAMESPACE
 } from '@CONSTANTS';
 
-
 import { escapeShellText } from '@lib/escapeShellText';
 import { jsonMemoize } from '@lib/jsonMemoize';
 
+console.log(jsonMemoize);
+
+/**
+ * Get the mime type of file at {filepath}.
+ *
+ * @param   {string}  filepath
+ *
+ * @return  {string}
+ */
 export const getMimeTypeFunction = (filepath: string): string => (
   execSync(`file --mime-type -b "${escapeShellText(filepath)}"`, {
     encoding: 'utf-8',
@@ -23,6 +31,8 @@ export const getMimeTypeFunction = (filepath: string): string => (
 
 /**
  * Get the mime type of file at {filepath}.
+ *
+ * @augments lib.getMimeTypeFunction
  *
  * @param   {string}  filepath
  *

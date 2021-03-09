@@ -13,7 +13,11 @@
  */
 const cwd = process.cwd();
 
+import fs from 'fs';
+import path from 'path';
+
 import { log } from '@lib/log';
+import { HOME_LOG_DIRECTORY } from '@CONSTANTS';
 import { listAudioFiles } from '@lib/listAudioFiles';
 import { listSubDirectories } from '@lib/listSubDirectories';
 import { AudioTagMeta, matchMetaDataFromFileName } from '@lib/matchMetaDataFromFileName';
@@ -53,4 +57,6 @@ audiofiles.forEach((file) => {
   result.tracks[key].push(file);
 });
 
+
+fs.writeFileSync(path.resolve(HOME_LOG_DIRECTORY, 'sample.json'), JSON.stringify(result, null, 2),  'utf-8');
 log(Object.values(result.tracks).filter((arr) => arr[0].artist && arr[0].title && arr.length > 2));

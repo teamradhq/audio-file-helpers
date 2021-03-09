@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/node12/tsconfig.json",
   "compilerOptions": {
     "noImplicitAny": true,
     "module": "ESNext",
@@ -10,11 +11,11 @@
     "outDir": "./dist",
     "rootDir": "./",
     "strict": true,
-    "types": ["node"],
+    "types": ["node", "jest"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@CONSTANTS": ["src/CONSTANTS/index.ts"],
       "@CONSTANTS/*": ["src/CONSTANTS/*"],
