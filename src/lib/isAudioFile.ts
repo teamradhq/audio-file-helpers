@@ -1,5 +1,7 @@
 import { REGEX_AUDIO_FILE_EXTENSION } from '@CONSTANTS';
 
+console.log('Hello');
+
 /**
  * The file at {filepath} has an audio mime type.
  *
@@ -9,4 +11,4 @@ import { REGEX_AUDIO_FILE_EXTENSION } from '@CONSTANTS';
  */
 export const isAudioFile = (
   filepath: string
-): boolean => !!filepath.match(REGEX_AUDIO_FILE_EXTENSION);
+): boolean => !!filepath.match(REGEX_AUDIO_FILE_EXTENSION)
