@@ -78,7 +78,10 @@ const separator = String(patternRegExpGroups.pop());
 const trackTagMatch = new RegExp(`^${patternRegExpGroups.join(separator).trim().slice(0, -1)}`);
 
 const tagMatchMappers: EntryMapperCollection = {
-  DEFAULT: (key, value) => [key, (value || '').trim()],
+  DEFAULT: (key: string, value: unknown): string[] => [
+    key,
+    String(value ?? '').trim()
+  ],
   artist: (key, value) => [
     key,
     value.split(',').map(artist => artist.trim())
