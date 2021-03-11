@@ -41,12 +41,29 @@ const patterns: Required<AudioTagMeta> = {
 };
 
 /**
+ * Wrap a regex {pattern} string in an optional
+ * group which can be named by {key} or not.
+ *
+ * @param   {string}    key      Group name for {pattern} will be {key}.
+ * @param   {string}    pattern
+ * @param   {boolean}   isNamed
+ *
+ * @return  {string}
+ */
+function makeRegExPatternGroup(
+  [key, pattern]: [string, number | string],
+  isNamed = true
+): string {
+  return isNamed ? `(?<${key}>${pattern})?` : `(${pattern})?`;
+}
+
+/**
  * Named, optional groups for each RegExp pattern.
  */
 const patternRegExpGroups: string[] = Object.entries(patterns)
   .reduce((parts: string[], [key, pattern]) => ([
     ...parts,
-    key !== 'separator' ? `(?<${key}>${pattern})?` : `(${pattern})?`
+    makeRegExPatternGroup([key, pattern], key !== 'separator')
   ]), []);
 
 /**
