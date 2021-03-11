@@ -1,5 +1,9 @@
 import {
-  AudioTagMeta, matchMetaDataFromFileName
+  AudioTagMeta,
+} from '#types';
+
+import {
+  matchMetaDataFromFileName
 } from '@lib/matchMetaDataFromFileName';
 
 

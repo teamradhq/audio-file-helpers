@@ -16,11 +16,13 @@ const cwd = process.cwd();
 import fs from 'fs';
 import path from 'path';
 
+import { AudioTagMeta } from '#types';
+
 import { log } from '@lib/log';
 import { HOME_LOG_DIRECTORY } from '@CONSTANTS';
 import { listAudioFiles } from '@lib/listAudioFiles';
 import { listSubDirectories } from '@lib/listSubDirectories';
-import { AudioTagMeta, matchMetaDataFromFileName } from '@lib/matchMetaDataFromFileName';
+import { matchMetaDataFromFileName } from '@lib/matchMetaDataFromFileName';
 
 const directories = listSubDirectories(cwd);
 const audiofiles = listAudioFiles(directories);

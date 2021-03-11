@@ -1,29 +1,9 @@
 import { basename, parse } from 'path';
-/**
- * Audio file metadata, which may be present in its name.
- */
-export type AudioTagMeta = {
-  trackNumber?: string | number;
-  artist?: string;
-  title?: string;
-  key?: string;
-  bpm?: string;
-  separator?: string;
-}
 
-/**
- * A function that maps an object entry's value.
- */
-export type EntryMapperFunction = (key: string, value: string) => (string|number)[];
-
-/**
- * A collection of entry mappers, including
- * a default mapper.
- */
-export type EntryMapperCollection = {
-  DEFAULT: EntryMapperFunction;
-  [key: string]: EntryMapperFunction;
-}
+import {
+  AudioTagMeta,
+  EntryMapperCollection,
+} from '#types/MatcherTypes';
 
 /**
  * RegExp patterns for identifying certain
@@ -33,7 +13,7 @@ export type EntryMapperCollection = {
  */
 const patterns: Required<AudioTagMeta> = {
   trackNumber: '\\d{1,2}',
-  artist: '[A-Za-z0-9,& ]*',
+  artist: '[A-Za-z0-9,&_ ]*',
   title: '[A-Za-z0-9,()"\' ]*',
   key:'\\d{1,2}[AB]',
   bpm:'\\d{2,3}',
@@ -101,11 +81,11 @@ const tagMatchMappers: EntryMapperCollection = {
  *
  * @return  {AudioTagMeta}
  */
-export const matchMetaDataFromFileName = (filepath: string): AudioTagMeta => {
+export const matchMetaDataFromFileName = (filepath: string, pattern: RegExp = trackTagMatch): AudioTagMeta => {
   const base = basename(filepath);
-  const match = base.match(trackTagMatch)?.groups || {}
+  const match = base.match(pattern)?.groups || {}
   const entries = Object.entries(match).map(
-    ([key, value]) => value ? (tagMatchMappers[key] || tagMatchMappers.DEFAULT)(key, value) : [key, value]
+    ([key, value]) => (tagMatchMappers[key] || tagMatchMappers.DEFAULT)(key, value)
   );
 
   return {
